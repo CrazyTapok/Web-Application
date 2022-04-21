@@ -11,6 +11,7 @@ form div:first-of-type{
 
 form div:first-of-type input{
     width: 100%;
+    min-width: 150px;
 }
 
 input, button, textarea{
@@ -35,5 +36,6 @@ button:hover{
 textarea{
     margin-top: 15px;
     width: 100%;
+    min-width: 450px;
     box-sizing: border-box;
 }
