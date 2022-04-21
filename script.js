@@ -1,8 +1,6 @@
 let form = document.forms.myForm
 let errorMessage = document.querySelector('#errorMessage')
 
-console.log(errorMessage)
-
 form.addEventListener('submit', e => {
     e.preventDefault()
 
@@ -29,7 +27,7 @@ function addInvalid(input) {
 
 form.addEventListener('focus', (event) => {
     if (event.target.tagName === 'INPUT') {
-        event.target.classList.remove('invalid')
+        document.querySelectorAll('input').forEach(item => item.classList.remove('invalid'))
         errorMessage.innerHTML = ''
 
         event.target.classList.add('focus');
