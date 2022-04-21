@@ -2,19 +2,16 @@ let form = document.forms.myForm
 
 form.addEventListener('submit', e => {
     e.preventDefault()
-    try {
-        const startDate = form.date1.value
-        const endDate = form.date2.value
 
-        if (startDate !== '' && endDate !== '' && startDate < endDate) {
-            let arrayDate = getAllDate(startDate, endDate)
-    
-            requests(arrayDate)
-        } else{
-            throw new Error('error')
-        }
-    } catch (error) {
-        alert(error.message)
+    const startDate = form.date1.value
+    const endDate = form.date2.value
+
+    if (startDate !== '' && endDate !== '' && startDate < endDate) {
+        let arrayDate = getAllDate(startDate, endDate)
+        requests(arrayDate)
+    } else {
+        console.log(2)
+        return
     }
 })
 
@@ -48,14 +45,14 @@ function requests(array) {
 
             solution(result)
         })
-        .catch(errore => alert(` ${errore}`))
+        .catch(error => alert(`Whoops! Request error: ${error.message}`))
 }
 
 function solution(array) {
     array.sort(mySort('cur'))
 
     console.log(array)
-    form.answer.value = `Min курс доллара: ${array[0].cur} Дата: ${array[0].date}\n\nMax курс доллара: ${array[array.length-1].cur} Дата: ${array[array.length-1].date}`
+    form.answer.value = `Min rate: ${array[0].cur} Date: ${array[0].date}\n\nMax rate: ${array[array.length-1].cur} Date: ${array[array.length-1].date}`
 }
 
 
