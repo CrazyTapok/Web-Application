@@ -10,7 +10,6 @@ form.addEventListener('submit', e => {
         let arrayDate = getAllDate(startDate, endDate)
         requests(arrayDate)
     } else {
-        console.log(2)
         return
     }
 })
