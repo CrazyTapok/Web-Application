@@ -1,0 +1,39 @@
+form{
+    width: 32%;
+    padding: 10px;
+}
+
+form div:first-of-type{
+    display: flex;
+    justify-content: space-between;
+    gap: 5px;
+}
+
+form div:first-of-type input{
+    width: 100%;
+}
+
+input, button, textarea{
+    outline: none;
+    padding: 7px;
+    font-size: 18px;
+    border-radius: 10px;
+    border: 1px solid #6d757d;
+}
+ 
+button{
+    border: none;
+    cursor: pointer;
+    color: #fff;
+    background-color: #017bff;
+}
+
+button:hover{
+    background-color: #0865c9;
+}
+
+textarea{
+    margin-top: 15px;
+    width: 100%;
+    box-sizing: border-box;
+}
