@@ -25,7 +25,7 @@ function getAllDate(startDate, endDate) {
     endDate = Date.parse(endDate) 
 
     for (let i = startDate; i <= endDate; i = i + 24*60*60*1000){
-        result.push(new Date(i).toISOString().substr(0, 10))
+        result.push(new Date(i).toString().substring(0, 10))
     }
 
     return result
@@ -48,13 +48,14 @@ function requests(array) {
 
             solution(result)
         })
+        .catch(errore => alert(` ${errore}`))
 }
 
 function solution(array) {
     array.sort(mySort('cur'))
 
     console.log(array)
-    document.querySelector('#answer').innerHTML = `Мин курс доллара: ${array[0].date} (${array[0].cur})`
+    form.answer.value = `Min курс доллара: ${array[0].cur} Дата: ${array[0].date}\n\nMax курс доллара: ${array[array.length-1].cur} Дата: ${array[array.length-1].date}`
 }
 
 
