@@ -74,15 +74,27 @@ function requests(array) {
 }
 
 function solution(array) {
-    array.sort(mySort('cur'))
+    // array.sort(mySort('cur'))
+
+    array.sort((a,b) => {
+
+        if(a.cur < b.cur) return -1;
+        if (a.cur > b.cur) return 1;
+
+        // при равных курсах (cur) сортируем по дате (date)
+        if(a.date < b.date) return -1;
+        if (a.date > b.date) return 1;
+            
+        return 0;
+    })
 
     console.log(array)
     form.answer.value = `Min rate: ${array[0].cur} Date: ${array[0].date}\n\nMax rate: ${array[array.length-1].cur} Date: ${array[array.length-1].date}`
 }
 
 
-function mySort(field) {
-    return (a, b) => a[field] > b[field] ? 1 : -1;
-}
+// function mySort(field) {
+//     return (a, b) => a[field] > b[field] ? 1 : -1;
+// }
 
 
