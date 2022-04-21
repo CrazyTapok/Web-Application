@@ -34,8 +34,19 @@ button:hover{
 }
 
 textarea{
-    margin-top: 15px;
     width: 100%;
     min-width: 450px;
     box-sizing: border-box;
+}
+
+.invalid{
+    border-color: red !important;
+}
+
+.focus{
+    border-color:#017bff !important;
+}
+
+#errorMessage{
+    color: red;
 }

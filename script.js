@@ -1,4 +1,7 @@
 let form = document.forms.myForm
+let errorMessage = document.querySelector('#errorMessage')
+
+console.log(errorMessage)
 
 form.addEventListener('submit', e => {
     e.preventDefault()
@@ -6,14 +9,39 @@ form.addEventListener('submit', e => {
     const startDate = form.date1.value
     const endDate = form.date2.value
 
-    if (startDate !== '' && endDate !== '' && startDate < endDate) {
+    if (startDate < endDate) {
         let arrayDate = getAllDate(startDate, endDate)
         requests(arrayDate)
     } else {
+        
+        form.date1.classList.add('invalid')
+        form.date2.classList.add('invalid')
+
+        errorMessage.innerHTML = 'Range is not correct'
+        
         return
     }
 })
 
+function addInvalid(input) {
+    input.classList.add('invalid');
+}
+
+form.addEventListener('focus', (event) => {
+    if (event.target.tagName === 'INPUT') {
+        event.target.classList.remove('invalid')
+        errorMessage.innerHTML = ''
+
+        event.target.classList.add('focus');
+    }
+}, true);
+
+form.addEventListener('blur', (event) => {
+    if (event.target.tagName === 'INPUT') {
+        event.target.classList.remove('focus');
+    }
+    
+}, true);
 
 function getAllDate(startDate, endDate) {
     let result = []

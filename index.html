@@ -10,11 +10,13 @@
 <body>
     <form action="#" name="myForm">
         <div>
-            <input type="date" name="date1">
-            <input type="date" name="date2">
+            <input type="date" name="date1" required>
+            <input type="date" name="date2" required>
             <button type="submit">Calculate</button>
         </div>
-
+        
+        <p id="errorMessage"></p>
+        
         <div>
             <textarea name="answer" rows="4" placeholder="Answer..."></textarea>
         </div>
