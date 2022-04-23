@@ -59,14 +59,20 @@ function requests(array) {
     Promise.all(requests)
         .then(responses => Promise.all(responses.map(item => item.json())))
         .then(dates => {
-            let result = []
+            // let result = []
 
-            dates.forEach(date => {
-                result.push({
-                    date: date.Date.toString().substr(0, 10), 
-                    cur: date.Cur_OfficialRate
-                })
-            })
+            // dates.forEach(date => {
+            //     result.push({
+            //         date: date.Date.toString().substr(0, 10), 
+            //         cur: date.Cur_OfficialRate
+            //     })
+            // })
+
+            let result = dates.map(({ Date, Cur_OfficialRate }) => ({
+                date: Date.toString().substr(0, 10),
+                cur: Cur_OfficialRate,
+              })
+            )
 
             solution(result)
         })
